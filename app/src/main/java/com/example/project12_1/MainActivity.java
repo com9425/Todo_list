@@ -20,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Button btn_add = findViewById(R.id.add_btn);
+        Button remove_btn = findViewById(R.id.remove_btn);
         ListView listView = findViewById(R.id.listview);
          ArrayList<String> midList = new ArrayList<String>();
          ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,midList);
@@ -35,5 +36,15 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+
+        remove_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                midList.remove(midList.size()-1);
+                adapter.notifyDataSetChanged();
+
+            }
+        });
     }
+
 }
